@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<speechMacros>
+<appIsInForeground processName="chrome.exe"/> 
+
+  <!--::BUSCAR EN WIKIPEDIA --> 
+   <command>
+	<listenFor>[Dextiom] busca en wikipedia [...]</listenFor>
+	<listenFor>[Dextiom] busca [...] en wikipedia</listenFor>
+	<listenFor>[Dextiom] buscar [...] en wikipedia</listenFor>
+	<sendKeys>{F6}</sendKeys>
+	<waitFor seconds="0.2"/>
+	<insertText>http://es.wikipedia.org/wiki/{[...]}</insertText>
+	<waitFor seconds="0.5"/>
+    <sendKeys>{ENTER}</sendKeys>
+    <speak>{[...]} en wikipedia señor</speak>
+   </command> 
+   
+  <!--::BUSCAR EN YOUTUBE-->
+<command>   
+  <listenFor>[Dextiom] busca video[...]</listenFor>
+  <listenFor>[Dextiom] busca en youtube[...]</listenFor>
+  <listenFor>[Dextiom] buscar video de[...]</listenFor>
+  <listenFor>[Dextiom] buscar [...] en yuotube</listenFor>
+  <listenFor>[Dextiom] buscar [...] video</listenFor>
+  <sendKeys>{F6}</sendKeys>																																
+  <waitFor seconds="0.2"/>
+  <insertText>https://www.youtube.com/results?search_query={[...]}</insertText>
+  <waitFor seconds="0.5"/>
+  <sendKeys>{ENTER}</sendKeys>
+  <speak>{[...]} video completado</speak>
+</command>  
+
+ <!--::BUSCAR EN GOOGLE--> 
+   <command>
+	<listenFor>[Dextiom] busca [...]</listenFor>
+	<listenFor>[Dextiom] buscar [...]</listenFor>
+	<listenFor>[Dextiom] buscar en google [...]</listenFor>
+	<listenFor>[Dextiom] buscar [...] en google</listenFor>
+	<sendKeys>{F6}</sendKeys>
+    <waitFor seconds="0.2"/>
+    <insertText>{[...]}</insertText>
+    <waitFor seconds="0.5"/>
+	<sendKeys>{ENTER}</sendKeys>
+    <speak>{[...]} completada</speak>
+   </command> 
+   
+
+<!-- ::cambiando pestañas -->
+
+	<command>
+		<listenFor>[Dextiom] siguiente pestaña</listenFor>
+		<listenFor>cambiar pestaña</listenFor>
+		<sendKeys>{{ctrl}}{tab}</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Dextiom] anterior pestaña</listenFor>
+		<sendKeys>^+{TAB}</sendKeys>
+	</command>	  
+
+	<command>
+		<listenFor>[Dextiom] Ir a la pestaña ?Numero [1to8]</listenFor>
+		<listenFor>?Pestaña numero [1to8]</listenFor>
+		<sendKeys>^{[1to8]}</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Dextiom] ?Ir ?a ?la [NumberWord] Pestaña</listenFor>
+		<listenFor>[Dextiom] [NumberWord] Pestaña</listenFor>
+		<sendKeys>^{[NumberWord.realnum]}</sendKeys>
+	</command>
+
+	  
+<!-- ::Tab Control -->
+
+	<command>
+		<listenFor>[Dextiom] Abrir nueva pestaña</listenFor>
+		<sendKeys>^t</sendKeys>
+	</command>
+
+
+	<command>
+		<listenFor>[Dextiom] cerrar ?esta pestaña</listenFor>
+		<sendKeys>^{F4}</sendKeys>
+	</command>
+
+
+<!-- ::Historia -->
+
+	<command>
+		<listenFor>[Dextiom] pagina anterior</listenFor>
+		<listenFor>Return</listenFor>
+		<sendKeys>%{left}</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Jarvis] pagina posterior</listenFor>
+		<sendKeys>%{right}</sendKeys>
+	</command>
+	  
+  <!-- ::Navegacion -->
+
+
+	<command>
+		<listenFor>[Dextiom] Actualizar</listenFor>
+		<listenFor>[Dextiom] Actualizar pagina</listenFor>
+		<sendKeys>{F5}</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Dextiom] detener carga</listenFor>
+		<sendKeys>{esc}</sendKeys>
+	</command>
+
+	
+<!-- ::Pagina -->
+
+	<command>
+		<listenFor>[Dextiom] ver codigo de la pagina</listenFor>
+		<listenFor>[Dextiom] codigo de la pagina</listenFor>
+		<sendKeys>^u</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Dextiom] incremetar zoom</listenFor>
+		<listenFor>[Dextiom] aumentar zoom</listenFor>
+		<sendKeys>{{ctrl}}{NUM+}</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Dextiom] disminuir zoom</listenFor>
+		<listenFor>[Dextiom] reducir zoom</listenFor>
+		<sendKeys>{{ctrl}}{NUM-}</sendKeys>
+	</command>
+
+	<command>
+		<listenFor>[Dextiom] zoom normal</listenFor>
+		<listenFor>[Dextiom] Resetear zoom</listenFor>
+		<sendKeys>^0</sendKeys>
+	</command>
+	  
+<!-- ::buscar en la pagina -->
+
+	<command>
+		<listenFor>[Dextiom] buscar en la pagina [...]</listenFor>
+		<sendKeys>^f</sendKeys>
+			<waitFor seconds=".25"/> 
+			<insertText>{[...]}</insertText>
+	</command>
+
+<!-- ::Otros -->
+
+	<command>
+		<listenFor>[Dextiom] Navegar Full Screen</listenFor>
+		<listenFor>[Dextiom] Salir Full Screen</listenFor>
+		<listenFor>[Dextiom] pagina Full Screen</listenFor>
+		<sendKeys>{F11}</sendKeys>
+	</command>
+	  
+
+<!-- =======================================
+:: Lists
+======================================== -->
+	<listenForList name="NumberWord" propname="realnum">
+		<item propval="1">primera</item>
+		<item propval="2">Segunda</item>
+		<item propval="3">Tercera</item>
+		<item propval="4">cuarta</item>
+		<item propval="5">Quinta</item>
+		<item propval="6">Sexta</item>
+		<item propval="7">Septima</item>
+		<item propval="8">Octava</item>
+	</listenForList> 
+
+
+<numbers name="1to8" start="1" stop="8"/>
+	
+<rule name="Dextiom">
+	<list>
+		<p>Dextiom</p>
+		<p>Lisa</p>
+		<p>Alfa</p>
+		<p></p>
+	</list>
+</rule> 
+<Signature>
+MIIDvgYJKoZIhvcNAQcCoIIDrzCCA6sCAQExCzAJBgUrDgMCGgUAMGcGCisGAQQBgjcCAQSgWTBX
+MDIGCisGAQQBgjcCAR4wJAIBAQQQQf9itGlsy0O8AOWC49jANAIBAAIBAAIBAAIBAAIBADAhMAkG
+BSsOAwIaBQAEFIdUmto7K0gvSGny3ngSC//h/DPwoIIB4zCCAd8wggFIoAMCAQICECcpRW7JqfGM
+QUoW7BWnvKkwDQYJKoZIhvcNAQEFBQAwGzEZMBcGA1UEAx4QAEkA8QBhAGsAaQAwADAAMTAeFw0x
+NzEwMDIxMTExNDBaFw0xODEwMDIxNzExNDBaMBsxGTAXBgNVBAMeEABJAPEAYQBrAGkAMAAwADEw
+gZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKxDuL5PRYivvOhjgFxrYtdU6Ecn8/3lTrt3I8tm
+k3zaLBMYuWUqGsHRoO77WF/GoHDQ0x2r324z60evCrpR0kz9pFLNvdVe2eMRkzTzY5boC1zCRteQ
+kIDA0TLj9wEfS72tC2fFErP1XdU04nVOMLVNlivvGQGY3gBQmQB9/au9AgMBAAGjJDAiMAsGA1Ud
+DwQEAwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzANBgkqhkiG9w0BAQUFAAOBgQAEAzb1fKtt4Z5s
++oG+y34ZR97tXhAGUcmWJa5hRUnbrEkPyKqp8d9BIFOLhNbbBD2fW2jMrgKeL5Ihns0AN0zz01QZ
+7+jqPJ9bqhCl6J4WuKH8idw7h0ZHoD3jjdN9odYSLQnI1iRDLNhm2k9+NzYfIGB43jcxUV3khkru
+AHG/qDGCAUcwggFDAgEBMC8wGzEZMBcGA1UEAx4QAEkA8QBhAGsAaQAwADAAMQIQJylFbsmp8YxB
+ShbsFae8qTAJBgUrDgMCGgUAoHAwEAYKKwYBBAGCNwIBDDECMAAwGQYJKoZIhvcNAQkDMQwGCisG
+AQQBgjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFOpa
++EQF/tEDCdAxRxyM02eWQzRNMA0GCSqGSIb3DQEBAQUABIGAp2ZMgAsBa9AyUdQQuRjOObjbvkBA
+PliDZfN6abOxGvphKdae4bHFLAYUyfMaDo0tF4VfQC6PLAg2KubkU68U/oJ2r9iDi/EiqWYETl8i
+iKlQNz7EpBGlMLifQxb6NLy3fourA947c6C3hKLZkmjKnoBRIFJkGrBlZyMokzH8JYA=
+</Signature>
